@@ -1,0 +1,2 @@
+import(stats,MASS,graphics,utils,grDevices,survival,fitdistrplus,dbscan,diptest)
+export(pwFst,Fst,LK,plotPW,plotAF,plotLK,plotVar,selectionTest,viewPop,checkClusters,cls2gen,runMetaVaR,subsetCov,parEstimate)
