@@ -1,13 +1,38 @@
 Package: metaVaR
 Type: Package
 Title: Population genomics analysis from metagenomic data
-Version: 0.1.0
+Version: 0.2.0
 Author: Mohammed-Amin Madoui
 Maintainer: Mohammed-Amin Madoui <amadoui@genoscope.cns.fr>
 Description: metaVaR provides various functions to build metavariant species (MVS) and to analyse their populationgenomics. metaVaR uses metavariants computed by DiscoSnp++ (Peterlongo et al., 2017) from metagenomic reads. The metavariants can be clustered by species using density-based clustering (dbscan) applied on their loci depth of coverage. Once clustered, the allele frequencies of MVS populations are used to infer genomic differentiation and to identify loci under selection.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: stats,MASS
-Depends: survival,fitdistrplus,dbscan,diptest
+Imports: stats,MASS,methods, survival,fitdistrplus,dbscan,igraph
+Depends: R (>= 2.10)
 RoxygenNote: 6.1.1
+Collate: 
+    'data.R'
+    'dbscan2mvc.R'
+    'fst.R'
+    'getMWIS.R'
+    'mvc_class.R'
+    'mvc.R'
+    'mvc2AdjMat.R'
+    'mvc2mvs.R'
+    'mvs_class.R'
+    'mvs.R'
+    'mwis.R'
+    'pwFst.R'
+    'readMvc.R'
+    'readMvcList.R'
+    'readMvs.R'
+    'readMvsList.R'
+    'setMvc.R'
+    'setMvs.R'
+    'tryParam.R'
+    'varFilterbyCov.R'
+    'writeMvc.R'
+    'writeMvcList.R'
+    'writeMvs.R'
+    'writeMvsList.R'
