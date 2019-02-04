@@ -1,7 +1,7 @@
 # metaVaR
-Metavariant Species forReference-free and Metagenomic-basedPopulation Genomic Analysis
+Metavariant Species for Reference-free and Metagenomic-based Population Genomic Analysis
 ## Why using metaVaR?
-Because it is cool
+Because it's cool baby!
 ## How to install metaVaR?
 ```
 install_github("madoui/metaVaR")
