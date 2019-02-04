@@ -14,5 +14,5 @@ e = c(3,5)
 p = c(5,10)
 MVC = tryParam (MS5$cov, e, p)
 MWIS = getMWIS (MVC)
-MVS = mvc2mvs(MVC)
+MVS = mvc2mvs(MWIS)
 ```
