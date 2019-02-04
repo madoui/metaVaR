@@ -6,7 +6,7 @@ Because it's cool baby!
 ```
 install_github("madoui/metaVaR")
 ```
-## Ho to use metaVaR?
+## How to use metaVaR?
 ```
 library(metaVaR)
 data(MS5)
