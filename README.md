@@ -14,5 +14,5 @@ e = c(3,5)
 p = c(5,10)
 MVC = tryParam ( e, p, MS5$cov)
 MWIS = getMWIS (MVC)
-MVS = mvc2mvs(MWIS)
+MVS = mvc2mvs(MWIS, minPop = 3, minCov = 8, MS5$freq)
 ```
