@@ -1,14 +1,20 @@
 #' getMWIS
 #'
-#' Identify all the maximum weighted independant sets from a list of \code{mvc}
+#' getMWIS identifies all the maximum weighted independant sets from a list of \code{mvc}.
 #'
 #' @param MVC a list of objects of class \code{mvc}.
 #' @return a list of object of class \code{mvc} candidate for \code{mvs}.
 #' @importFrom igraph neighbors
 #' @importFrom igraph as_ids
 #' @references S. Sakai, M. Togasaki, K. Yamazaki. A note on greedy algorithms
-#' for the maximum weighted independent set problem. \emph{Discrete applied Mathhematics
-#' }, 126:313-322, 2003
+#' for the maximum weighted independent set problem. \emph{Discrete applied Mathematics
+#' }, 126:313-322, 2003.
+#' @examples
+#' data("MS5")
+#' e = c(3,5)
+#' p = c(5, 10)
+#' MVC = tryParam(e, p , MS5$cov)
+#' MWIS = getMWIS (MVC)
 #' @export
 
 getMWIS<-function(MVC){

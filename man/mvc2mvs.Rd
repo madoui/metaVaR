@@ -14,18 +14,26 @@ mvc2mvs(MVC, minPop = 3, minCov = 8, freq, minVarCov = 8, sd = 2,
 
 \item{minCov}{minimum median depth of coverage, set to 8 by default.}
 
-\item{freq}{allele frequencies}
+\item{freq}{allele frequencies in a \code{data.frame}}
 
 \item{minVarCov}{minimum depth of coverage of loci, set to 8 by default.}
 
 \item{sd}{standard deviation of depth of coverage to select variant, set to 2 by default.}
 
-\item{minVar}{minimum number of variants in a \code{mvs}, set to 100 by default}
+\item{minVar}{minimum number of variants in a \code{mvs}, set to 100 by default.}
 }
 \value{
 a list of objects of class \code{mvs}.
 }
 \description{
-mvc2mvs selects the \code{mvc} belonging to the maximum weighted independent
-set and passing quality filters to generates the \code{mvs}. The
+mvc2mvs selects the \code{mvc} being maximum weighted independent
+set and passing quality filters to generates the \code{mvs}.
+}
+\examples{
+data("MS5")
+e = c(3,5)
+p = c(5, 10)
+MVC = tryParam(e, p , MS5$cov)
+MWIS = getMWIS (MVC)
+MVS = mvc2mvs (MWIS, freq = MS5$freq, minCov = 6)
 }
