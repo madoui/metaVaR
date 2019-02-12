@@ -2,8 +2,7 @@
 % Please edit documentation in R/tryParam.R
 \name{tryParam}
 \alias{tryParam}
-\title{tryParam
-Test several couples of epsilon and minimum points for density-based clustering of metavariants}
+\title{tryParam}
 \usage{
 tryParam(eps, pts, cov, mvcMinVar = 1000)
 }
@@ -12,23 +11,21 @@ tryParam(eps, pts, cov, mvcMinVar = 1000)
 
 \item{pts}{minimum points value(s).}
 
-\item{cov}{dataframe of the depth of coverage of biallelic loci.}
+\item{cov}{depth of coverage of biallelic loci in \code{data.frame}.}
 
 \item{mvcMinVar}{minimum of metavariants in \code{mcv}, set to 1,000 by default.}
 }
 \value{
-a list of object of class \code{mcv}
+a list of object of class \code{mcv}.
 }
 \description{
-tryParam
-Test several couples of epsilon and minimum points for density-based clustering of metavariants
+tryParam tests several couples of epsilon and minimum points values for density-based clustering of metavariants.
 }
 \examples{
-{
 data("MS5")
-e = c(3,4)
-p = c(10, 20)
-#test couples (3,10), (4,10), (3, 20), (4,20)
-}
+e = c(3,5)
+p = c(5, 10)
+MVC = tryParam(e, p , MS5$cov) # tests (3,5), (3,10), (5,5), (5, 10)
+
 
 }
