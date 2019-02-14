@@ -16,7 +16,7 @@ tryParam(eps, pts, cov, mvcMinVar = 1000)
 \item{mvcMinVar}{minimum of metavariants in \code{mcv}, set to 1,000 by default.}
 }
 \value{
-a list of object of class \code{mcv}.
+a list of objects of class \code{mcv}.
 }
 \description{
 tryParam tests several couples of epsilon and minimum points values for density-based clustering of metavariants.

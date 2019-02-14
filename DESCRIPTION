@@ -8,7 +8,7 @@ Description: metaVaR provides various functions to build metavariant species (MV
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: stats,MASS,methods, survival,fitdistrplus,dbscan,igraph
+Imports: stats,MASS,methods, survival,fitdistrplus,dbscan,igraph,ggplot2,reshape2
 Depends: R (>= 2.10)
 RoxygenNote: 6.1.1
 Collate: 
@@ -23,6 +23,7 @@ Collate:
     'mvs_class.R'
     'mvs.R'
     'mwis.R'
+    'plotMvs.R'
     'pwFst.R'
     'readMvc.R'
     'readMvcList.R'
