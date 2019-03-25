@@ -10,10 +10,6 @@
 #' @import fitdistrplus
 #' @export
 dbscan2mvc <- function(dbscanRes, cov, mvcMinVar = 1000, mvcMinCov = 5){
-  if (class(dbscanRes)=="dbscan"){
-    error = cat("dbscanRes is not an object of dbscan\n")
-    return(error)
-  }
   mvcList = list()
   mvcNb = max(dbscanRes$cluster)
   popNb = ncol(cov)

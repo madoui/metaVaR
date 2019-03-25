@@ -6,15 +6,21 @@
 \alias{plotMvs,mvs-method}
 \title{plotMvs}
 \usage{
-plotMvs(x, t)
+plotMvs(mvs, type)
 
-\S4method{plotMvs}{mvs}(x, t)
+\S4method{plotMvs}{mvs}(mvs, type)
 }
 \arguments{
-\item{x}{an object of class \code{mvs}.}
+\item{mvs}{an object of class \code{mvs}.}
 
-\item{t}{type of plot to produce, can "freq", "cov", "heatFst", "graphFst", "gFst"}
+\item{type}{type of plot to produce}
 }
 \description{
-plotMvs allows various plotting of a \code{mvs}
+plotMvs allows various plotting for \code{mvs}
+}
+\details{
+type can be "freq" for allele frequencies distribution,
+"cov", for depth of coverage distribution.
+"heatFst", for a heatmap of the pairwise-Fst
+"graphFst", for the "gFst"
 }

@@ -3,6 +3,7 @@
 #' Calculate pairwise-Fst between each population
 #' @param p allele frequencies
 #' @return pairwise Fst
+#' @export
 pwFst <- function (p){
   #check if the input is a matrix
   if ( is.matrix (p) == 1){
