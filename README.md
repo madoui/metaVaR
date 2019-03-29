@@ -1,9 +1,9 @@
 # metaVaR
 MetaVariant Species for Reference-free and Metagenomic-based Population Genomic Analysis.
 ## Why using metaVaR?
-metaVaR allows for rapid and robust population genomic analysis based on variants (called metavariants in this context) generated directly from metagenomic data without use of reference genome. Its utilization is based on DiscoSNP++ ran on multisamples metagenomic reads. metaVaR clusters the metavariants in species called metavariant species or MVS by reference to metagenomic species (MGS). 
+<i>metaVaR</i> allows for rapid and robust population genomic analysis based on variants (called metavariants in this context) generated directly from metagenomic data without reference genomes or transcriptomes. Its utilization is based on <i>DiscoSnp++</i> ran on multisamples metagenomic reads. <i>metaVaR</i> clusters the metavariants into species called metavariant species or MVS by reference to metagenomic species. The genomic differentiation of the MVS is based on the analysis of the <i>F</i>-statistics. 
 ## How to install metaVaR?
-metaVaR is a R package that can be installed using `install_github`.
+<i>metaVaR</i> is a R package that can be installed using `install_github`.
 ```
 install_github("madoui/metaVaR")
 ```
