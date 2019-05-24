@@ -7,7 +7,7 @@ MetaVariant Species for Reference-free and Metagenomic-based Population Genomic 
 ```
 install_github("madoui/metaVaR")
 ```
-## How to use metaVaR?
+## How to run metaVaR?
 ```
 library(metaVaR)
 data(MS5)
@@ -17,14 +17,5 @@ MVC = tryParam (e, p, MS5$cov)
 MWIS = getMWIS (MVC)
 MVS = mvc2mvs(MWIS, freq = MS5$freq)
 ```
-## How to use metaVaR?
-```
-library(metaVaR)
-data(MS5)
-e = c(3,5)
-p = c(5,10)
-MVC = tryParam (e, p, MS5$cov)
-MWIS = getMWIS (MVC)
-MVS = mvc2mvs(MWIS, freq = MS5$freq)
-```
-## metaVaR output
+
+## metaVaR outputs
