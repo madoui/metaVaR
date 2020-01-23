@@ -26,6 +26,4 @@ data("MS5")
 e = c(3,5)
 p = c(5, 10)
 MVC = tryParam(e, p , MS5$cov) # tests (3,5), (3,10), (5,5), (5, 10)
-
-
 }

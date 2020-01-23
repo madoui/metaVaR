@@ -7,16 +7,13 @@
 #' @param mvcMinVar minimum of metavariants in \code{mcv}, set to 1,000 by default.
 #' @return a list of objects of class \code{mcv}.
 #' @import dbscan
-#' @export
 #' @examples
 #' data("MS5")
 #' e = c(3,5)
 #' p = c(5, 10)
 #' MVC = tryParam(e, p , MS5$cov) # tests (3,5), (3,10), (5,5), (5, 10)
-#'
-#'
 #' @export
-
+#'
 tryParam <- function ( eps, pts, cov, mvcMinVar = 1000){
   mvc = list()
   for ( i in eps ){

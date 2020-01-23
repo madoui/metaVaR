@@ -13,5 +13,8 @@ pwFst(p)
 pairwise Fst
 }
 \description{
-Calculate pairwise-Fst between each population
+Calculate pairwise F-statistics between each population
+}
+\references{
+Sewal Wright. Genetical Structure of Populations. Nature, 166:247–249, 1950
 }

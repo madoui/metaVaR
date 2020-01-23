@@ -21,7 +21,7 @@
 
 getMWIS<-function(MVC, p = TRUE, prefix = "out"){
   MWIS = list()
-  if (p == TRUE){
+  if (p == TRUE && !dir.exists(prefix)){
     dir.create(prefix, showWarnings = FALSE)
   }
   # while there is still mvc(s) in the mvc list (MVC)

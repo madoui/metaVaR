@@ -1,9 +1,11 @@
 #' pwFst
 #'
-#' Calculate pairwise-Fst between each population
+#' Calculate pairwise F-statistics between each population
+#' @references Sewal Wright. Genetical Structure of Populations. Nature, 166:247–249, 1950
 #' @param p allele frequencies
 #' @return pairwise Fst
 #' @export
+
 pwFst <- function (p){
   #check if the input is a matrix
   if ( is.matrix (p) == 1){
