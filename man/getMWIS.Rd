@@ -4,10 +4,14 @@
 \alias{getMWIS}
 \title{getMWIS}
 \usage{
-getMWIS(MVC)
+getMWIS(MVC, p = TRUE, prefix = "out")
 }
 \arguments{
 \item{MVC}{a list of objects of class \code{mvc}.}
+
+\item{p}{\code{logical}, for graphical output, set to TRUE by default.}
+
+\item{prefix}{name of the graphical output directory, set to "out" by default.}
 }
 \value{
 a list of object of class \code{mvc} candidate for \code{mvs}.

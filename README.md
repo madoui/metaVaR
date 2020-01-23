@@ -15,8 +15,11 @@ data(MS5)
 e = c(3,5)
 p = c(5,10)
 MVC = tryParam (e, p, MS5$cov)
+writeMvcList(MVC, "MVC")
 MWIS = getMWIS (MVC)
+writeMvcList(MWIS, "MWIS")
 MVS = mvc2mvs(MWIS, freq = MS5$freq)
+writeMvcList(MVS, "MVS")
 ```
 The results consists in a list of objects of class <i>mvs</i> that contains the allele frequency matrix and can be used for population genomics analysis.
 

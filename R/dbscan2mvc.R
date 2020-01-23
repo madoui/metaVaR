@@ -10,10 +10,6 @@
 #' @import fitdistrplus
 #' @export
 dbscan2mvc <- function(dbscanRes, cov, mvcMinVar = 1000, mvcMinCov = 5){
-  if (class(dbscanRes)=="dbscan"){
-    error = cat("dbscanRes is not an object of dbscan\n")
-    return(error)
-  }
   mvcList = list()
   mvcNb = max(dbscanRes$cluster)
   popNb = ncol(cov)
@@ -31,7 +27,7 @@ dbscan2mvc <- function(dbscanRes, cov, mvcMinVar = 1000, mvcMinCov = 5){
       if (median(mvcCov[,j]< mvcMinCov)){
         next
       }
-      fit = fitdist (sample (mvcCov[,j], mvcMinVar), "nbinom", method = 'mle', silent = TRUE)
+      fit = fitdist (sample(mvcCov[,j], mvcMinVar) , "nbinom", method = 'mle', silent = TRUE)
       mvcFit [[popName[j]]] = fit
     }
     mvc = mvc (name = mvcName,

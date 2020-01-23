@@ -7,11 +7,17 @@
 fst(p)
 }
 \arguments{
-\item{p}{allele frequencies}
+\item{p}{allele frequencies (data.frame)}
 }
 \value{
-Fst
+F-statistics value
 }
 \description{
-Calculate Fst value as \eqn{\fract{var(p)}{mean(p)(1-mean(p))}}
+Calculate F-statistics from MVS allele frequencies
+}
+\details{
+The F-statistics is computed as follow, \eqn{F=\frac{var(p)}{mean(p)(1-mean(p))}}, where \code{p} is a vector of allele frequencies
+}
+\references{
+Sewall Wright. Genetical Structure of Populations. Nature, 166:247–249, 1950
 }

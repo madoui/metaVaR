@@ -19,22 +19,29 @@ mwis<-function(nbComp, MVC){
                     ncol = length(mvcList),
                     nrow = length(mvc@pop),
                     dimnames = list(mvc@pop,names(mvcList)))
+    mvcSize = c(rep(0,length(mvcList)))
+    names(mvcSize) = names(mvcList)
     # get loglikelihoods for connected mvc
     for (mvc in mvcList){
+      mvcSize[mvc@name] = length (mvc@var)
       for (pop in names(mvc@fit)){
         loglik[pop,mvc@name] = mvc@fit[[pop]]$loglik
       }
     }
     # calculate mvc weight, weight = mean of normalized loglikelihood by connected mvc to get mvc weight
-    maxLoglik = max(loglik)
-    minLoglik = min(loglik)
-    loglik = (loglik - minLoglik)/(maxLoglik - minLoglik)
-    weights = colMeans(loglik)
+    maxL = max(loglik)
+    minL = min(loglik)
+    loglik = (loglik - minL)/(maxL - minL)
+    l = colMeans(loglik)
+    maxS = max(mvcSize)
+    minS = min(mvcSize)
+    s = (mvcSize - minS)/(maxS-minS)
+
     # calculate the mvc score, mvc score = mvc weight / (mvc degree + 1)
     maxScore = 0
     for (mvc in mvcList){
       mvcName = mvc@name
-      mvcWeight = weights[mvcName]
+      mvcWeight = sqrt(l[mvcName]*s[mvcName])
       mvcdegree = mvc@deg
       mvcScore = mvcWeight/ (mvcdegree + 1)
       mvc = setMvc(mvc, weight = mvcWeight, score = mvcScore)
