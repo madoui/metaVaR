@@ -39,19 +39,24 @@ mvc2mvs <- function (MVC, minPop = 3, minCov = 8 , freq , minVarCov = 8, sd = 2,
     if (nrow(mvsCov) < minVar){
       next
     }
-    cat (paste("mvc",mvsName,"is a valid mvs\n", sep = " "))
-    mvsVar = rownames(mvsCov)
-    mvsFreq = freq[mvsVar,mvsPop]
-    mvsFst = fst(mvsFreq)
-    mvsPwFst = pwFst(mvsFreq)
-    mvs = as(mvc,"mvs")
-    MVS[[mvsName]] = setMvs (mvs,
-                             cov = mvsCov,
-                             pop = mvsPop,
-                             var = mvsVar,
-                             freq = mvsFreq,
-                             gFst = mvsFst,
-                             pwFst = mvsPwFst)
+    else{
+      cat (paste("mvc",mvsName,"is a valid mvs\n", sep = " "))
+      mvsVar = rownames(mvsCov)
+      mvsFreq = freq[mvsVar,mvsPop]
+      mvsFst = fst(mvsFreq)
+      mvsPwFst = pwFst(mvsFreq)
+      mvsLK = LK (mvsFreq)
+      mvs = as(mvc,"mvs")
+      MVS[[mvsName]] = setMvs (mvs,
+                               cov = mvsCov,
+                               pop = mvsPop,
+                               var = mvsVar,
+                               freq = mvsFreq,
+                               gFst = mvsFst,
+                               pwFst = mvsPwFst,
+                               gLK = mvsLK)
+    }
+
   }
   return(MVS)
 }
