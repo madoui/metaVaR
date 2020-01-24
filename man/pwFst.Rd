@@ -7,10 +7,10 @@
 pwFst(p)
 }
 \arguments{
-\item{p}{allele frequencies}
+\item{p}{allele frequencies (data.frame) with row and column names}
 }
 \value{
-pairwise Fst
+a symetric pairwise Fst table of class \code{data.frame}
 }
 \description{
 Calculate pairwise F-statistics between each population

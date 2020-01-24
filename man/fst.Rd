@@ -7,13 +7,13 @@
 fst(p)
 }
 \arguments{
-\item{p}{allele frequencies (data.frame)}
+\item{p}{allele frequencies of class \code{data.frame}}
 }
 \value{
 F-statistics value
 }
 \description{
-Calculate F-statistics from MVS allele frequencies
+Compute F-statistics from MVS allele frequencies
 }
 \details{
 The F-statistics is computed as follow, \eqn{F=\frac{var(p)}{mean(p)(1-mean(p))}}, where \code{p} is a vector of allele frequencies

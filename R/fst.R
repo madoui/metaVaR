@@ -1,9 +1,9 @@
 #' fst
 #'
-#' Calculate F-statistics from MVS allele frequencies
+#' Compute F-statistics from MVS allele frequencies
 #' @references Sewall Wright. Genetical Structure of Populations. Nature, 166:247–249, 1950
 #' @details The F-statistics is computed as follow, \eqn{F=\frac{var(p)}{mean(p)(1-mean(p))}}, where \code{p} is a vector of allele frequencies
-#' @param p allele frequencies (data.frame)
+#' @param p allele frequencies of class \code{data.frame}
 #' @return F-statistics value
 #' @export
 fst <- function (p) {
@@ -14,5 +14,7 @@ fst <- function (p) {
   varID = varID [!is.na(fst)]
   fst[complete.cases( fst )]
   fst = na.omit( fst)
-  return (fst = as.vector( fst ) )
+  fst = as.vector( fst )
+  names(fst) = varID
+  return ( fst =  fst )
 }

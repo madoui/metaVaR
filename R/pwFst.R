@@ -2,8 +2,8 @@
 #'
 #' Calculate pairwise F-statistics between each population
 #' @references Sewal Wright. Genetical Structure of Populations. Nature, 166:247–249, 1950
-#' @param p allele frequencies
-#' @return pairwise Fst
+#' @param p allele frequencies (data.frame) with row and column names
+#' @return a symetric pairwise Fst table of class \code{data.frame}
 #' @export
 
 pwFst <- function (p){

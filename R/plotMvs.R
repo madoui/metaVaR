@@ -1,14 +1,14 @@
 #' plotMvs
 #'
-#' plotMvs allows various plotting for \code{mvs}
+#' plotMvs allows various plotting for \code{mvs} like depth of coverage and allele frequency distribution, pairwise F-statistics, LK distribution
 #'
 #' @param mvs an object of class \code{mvs}.
 #' @param type type of plot to produce
 #' @details
 #' type can be "freq" for allele frequencies distribution,
 #' "cov", for depth of coverage distribution.
-#' "heatFst", for a heatmap of the pairwise-Fst
-#' "graphFst", for the "gFst"
+#' "heatFst", for a heatmap of the pairwise F-statistics
+#' "LK", for the global LK statistics
 #' @docType methods
 #' @name  plotMvs
 #' @rdname plotMvs-methods
@@ -45,12 +45,22 @@ setMethod(
       colnames(fstTable) = c("Population1", "Population2", "Fst")
       p = ggplot(data = fstTable, aes_(x=~Population1, y=~Population2, fill = ~Fst))+
         geom_tile(color = "white")+
-        scale_fill_gradient2(low = "white", mid = "orange", high = "red",
-                             midpoint = 0.5, limit = c(0,max(fstTable)), space = "Lab") +
-        theme_minimal()+
-        theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1))+
+        geom_text(aes(label = round(Fst, 2)))+
+        scale_fill_gradient2(low = "white", high = "darkred", midpoint = 0, limit = c(0,1)) +
+        theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                           panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))+
         coord_fixed()
       plot(p)
+    }
+    if ( type == "LK"){
+      h = hist ( mvs@gLK$LK , plot = F, breaks = 50 )
+      n_pop = ncol(mvs@freq)-1
+      max1 = max ( h$density )
+      max2 = max ( dchisq (seq(0:max(mvs@gLK$LK)), n_pop ))
+      Max = max (max1, max2) + 0.1
+      hist ( mvs@gLK$LK, freq = F, xlab = "LK" , ylim = c(0,Max) , breaks = 50 , main = "")
+      x <- NULL; rm(x)
+      curve ( dchisq( x, n_pop ) , lwd=3, col="orange" , add=T )
     }
   }
 )
