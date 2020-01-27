@@ -29,9 +29,9 @@ MVS = mvc2mvs(MWIS, freq = MS5$freq)
 The results consists in a list of objects of class <i>mvs</i> that contains the allele frequency matrix, global and pairwise <i>F_{ST}</i>, LK and associated corrected p-value.
 
 ### Data preprocessing and input data format
-You first need to run DiscoSnp++ on multisample metagenomic data without references. Then, use the DiscoSnp++ VCF output to generate two matices: one depth of coverage matrix for bialleic loci and one allele frequency matrix. This task can be performed using the perl script metavarFilter.pl.
+You first need to run DiscoSnp++ on multisample metagenomic data without references. Then, use the DiscoSnp++ VCF output to generate two matices: one depth of coverage matrix for bialleic loci and one allele frequency matrix. This task can be performed using the perl script metavarFilter.pl designed to parse the DiscoSnp++ output.
 ```
-perl metavarFilter.pl -i metavariant.vcf -p prefix -m
+perl metavarFilter.pl -i metavariant.vcf -p prefix [-options...]
 ```
 
 ### Read/Write metaVaR outputs
@@ -73,6 +73,5 @@ plotMvs (MVS$`6_10_1`, type = "heatFst")
 plotMvs (MVS$`6_10_1`, type = "LK")
 ```
 
-### How to run <i>metaVaR</i> in parallel?
-
 ### How to cite <i>metaVaR</i>?
+
