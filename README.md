@@ -34,22 +34,44 @@ You first need to run DiscoSnp++ on multisample metagenomic data without referen
 perl metavarFilter.pl -i metavariant.vcf -p prefix -m
 ```
 
-### metaVaR output format and results storage
+### Read/Write metaVaR outputs
 ```
-library(metaVaR)
-
 # run metaVaR
 e = c(3,5)
 p = c(5,10)
-MVC = tryParam (e, p, MS5$cov)
-MWIS = getMWIS (MVC)
-MVS = mvc2mvs(MWIS, freq = MS5$freq)
+MVC_list = tryParam (e, p, MS5$cov)
 
-# store results
+# store MVC
+writeMvcList (MVC_list, "output_dir")
 
+# import MVC
+MVC_list = readMvcList ("output_dir")
+
+MWIS_list = getMWIS (MVC_list)
+MVS_list = mvc2mvs(MWIS_list, freq = MS5$freq)
+
+# store MVS
+writeMvsList (MVS_list, "output_dir")
+
+# read MVS
+MVS_list = readMvsList ("output_dir")
 ```
 
 ### Results visualisation
+Four types of plot to produce on a MVS, here an example on the MVS 6_10_1.
+```
+# Plot the MVS distribution of allele frequency
+plotMvs (MVS$`6_10_1`, type = "freq")
+
+# Plot the MVS loci depth of coverage
+plotMvs (MVS$`6_10_1`, type = "cov")
+
+# Plot the pairwise $F_{ST}$ matrix
+plotMvs (MVS$`6_10_1`, type = "heatFst")
+
+# Plot the LK distribution
+plotMvs (MVS$`6_10_1`, type = "LK")
+```
 
 ### How to run <i>metaVaR</i> in parallel?
 
