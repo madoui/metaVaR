@@ -38,3 +38,7 @@ Collate:
     'writeMvcList.R'
     'writeMvs.R'
     'writeMvsList.R'
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
