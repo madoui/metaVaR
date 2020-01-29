@@ -75,3 +75,4 @@ plotMvs (MVS$`6_10_1`, type = "LK")
 
 ### How to cite <i>metaVaR</i>?
 
+Laso-Jadart R, Ambroise C, Peterlongo P and Madoui MA. metaVaR: introducing metavariant species modelsfor reference-free metagenomic-based population genomics. 2020 (in prep)
