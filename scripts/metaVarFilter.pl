@@ -1,4 +1,4 @@
-#/bin/perl -w
+#!/bin/perl -w
 #  metaVarFilter.pl filters a VCF file and creates outputs for metaVaR
 #  input:  a VCF file produced by DiscoSNP++ ran on metagenomic data
 #  output: (i) filter VCF that contains informative biallelic SNVs
