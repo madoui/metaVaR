@@ -30,10 +30,10 @@ mvc2mvs selects the \code{mvc} being maximum weighted independent
 set and passing quality filters to generates the \code{mvs}.
 }
 \examples{
-data("MS5")
-e = c(3,5)
+\dontrun{
+e = c(5,6)
 p = c(5, 10)
 MVC = tryParam(e, p , MS5$cov)
 MWIS = getMWIS (MVC)
-MVS = mvc2mvs (MWIS, freq = MS5$freq, minPop = 3, minCov = 6 , minVarCov = 8, sd = 2, minVar = 100)
+MVS = mvc2mvs (MWIS, freq = MS5$freq, minPop = 3, minCov = 6 , minVarCov = 8, sd = 2, minVar = 100)}
 }

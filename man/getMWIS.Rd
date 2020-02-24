@@ -4,7 +4,7 @@
 \alias{getMWIS}
 \title{getMWIS}
 \usage{
-getMWIS(MVC, p = TRUE, prefix = "out")
+getMWIS(MVC, p = FALSE, prefix = "out")
 }
 \arguments{
 \item{MVC}{a list of objects of class \code{mvc}.}
@@ -20,11 +20,11 @@ a list of object of class \code{mvc} candidate for \code{mvs}.
 getMWIS identifies all the maximum weighted independant sets from a list of \code{mvc}.
 }
 \examples{
-data("MS5")
-e = c(3,5)
+\dontrun{data("MS5")
+e = c(5,6)
 p = c(5, 10)
 MVC = tryParam(e, p , MS5$cov)
-MWIS = getMWIS (MVC)
+MWIS = getMWIS (MVC)}
 }
 \references{
 S. Sakai, M. Togasaki, K. Yamazaki. A note on greedy algorithms
