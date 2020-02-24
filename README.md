@@ -61,16 +61,16 @@ MVS_list = readMvsList ("output_dir")
 There are currently four types of plots that ca be produced on a MVS object. Here an example on the MVS "6_10_1".
 ```
 # Plot the MVS distribution of allele frequency
-plotMvs (MVS$`6_10_1`, type = "freq")
+plotMvs (MVS$`5_5_1`, type = "freq")
 
 # Plot the MVS loci depth of coverage
-plotMvs (MVS$`6_10_1`, type = "cov")
+plotMvs (MVS$`5_5_1`, type = "cov")
 
 # Plot the pairwise $F_{ST}$ matrix
-plotMvs (MVS$`6_10_1`, type = "heatFst")
+plotMvs (MVS$`5_5_1`, type = "heatFst")
 
 # Plot the LK distribution
-plotMvs (MVS$`6_10_1`, type = "LK")
+plotMvs (MVS$`5_5_1`, type = "LK")
 ```
 
 ### How to cite <i>metaVaR</i>?
