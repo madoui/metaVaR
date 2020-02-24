@@ -12,14 +12,14 @@
 #' for the maximum weighted independent set problem. \emph{Discrete applied Mathematics
 #' }, 126:313-322, 2003.
 #' @examples
-#' data("MS5")
-#' e = c(3,5)
+#' \dontrun{data("MS5")
+#' e = c(5,6)
 #' p = c(5, 10)
 #' MVC = tryParam(e, p , MS5$cov)
-#' MWIS = getMWIS (MVC)
+#' MWIS = getMWIS (MVC)}
 #' @export
 
-getMWIS<-function(MVC, p = TRUE, prefix = "out"){
+getMWIS<-function(MVC, p = FALSE, prefix = "out"){
   MWIS = list()
   if (p == TRUE && !dir.exists(prefix)){
     dir.create(prefix, showWarnings = FALSE)

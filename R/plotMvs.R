@@ -43,6 +43,7 @@ setMethod(
       }
       fstTable = data.frame( t(combn(names(get_lower_tri(mvs@pwFst)),2)), fst=t(mvs@pwFst)[lower.tri(mvs@pwFst)] )
       colnames(fstTable) = c("Population1", "Population2", "Fst")
+      Fst<-c();c<-NULL
       p = ggplot(data = fstTable, aes_(x=~Population1, y=~Population2, fill = ~Fst))+
         geom_tile(color = "white")+
         geom_text(aes(label = round(Fst, 2)))+
