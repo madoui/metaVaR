@@ -1,16 +1,15 @@
 Package: metaVaR
 Type: Package
-Title: Population Genomics Analysis from Metagenomic Data
-Version: 0.3.18
-Author: Amin Madoui
-Maintainer: Amin Madoui <amine.madoui@gmail.com>
-Description: Various functions to reconstruct several species models simultaneously and to perform population genetic anayses from enviromental molecular data. This includes the estimation of genetic differentiation and the identification of loci under selection.
+Title: Population Genetic Analysis of Multiple Species from Environmental Molecular Data
+Version: 0.3.19
+Authors@R: person("amin", "madoui", email = "amine.madoui@gmail.com", role = c("aut", "cre"))
+Description: Various functions to reconstruct several species models simultaneously and to perform population genetic analyses from environmental molecular data. This includes the estimation of genetic differentiation and the identification of loci under selection.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: stats,MASS,methods,survival,fitdistrplus,dbscan,igraph,ggplot2,reshape2
 Depends: R (>= 2.10)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Collate: 
     'LK.R'
     'data.R'

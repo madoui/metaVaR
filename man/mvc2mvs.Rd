@@ -4,8 +4,7 @@
 \alias{mvc2mvs}
 \title{mvc2mvs}
 \usage{
-mvc2mvs(MVC, minPop = 3, minCov = 8, freq, minVarCov = 8, sd = 2,
-  minVar = 100)
+mvc2mvs(MVC, minPop = 3, minCov = 8, freq, minVarCov = 8, sd = 2, minVar = 100)
 }
 \arguments{
 \item{MVC}{a list of object of class \code{mvc}.}

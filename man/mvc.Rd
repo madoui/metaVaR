@@ -4,9 +4,20 @@
 \alias{mvc}
 \title{mvc}
 \usage{
-mvc(name = "", eps = 0, pts = 0, var = c(), pop = c(),
-  cov = data.frame(), fit = list(), comp = 0, deg = 0,
-  weight = 0, score = 0, mwis = FALSE)
+mvc(
+  name = "",
+  eps = 0,
+  pts = 0,
+  var = c(),
+  pop = c(),
+  cov = data.frame(),
+  fit = list(),
+  comp = 0,
+  deg = 0,
+  weight = 0,
+  score = 0,
+  mwis = FALSE
+)
 }
 \arguments{
 \item{name}{cluster name.}
