@@ -4,10 +4,25 @@
 \alias{mvs}
 \title{mvs}
 \usage{
-mvs(id = "", freq = data.frame(), gFst = 0, gLK = 0,
-  pwFst = data.frame(), name = "", eps = 0, pts = 0, var = c(),
-  pop = c(), cov = data.frame(), fit = list(), comp = 0, deg = 0,
-  weight = 0, score = 0, mwis = FALSE)
+mvs(
+  id = "",
+  freq = data.frame(),
+  gFst = 0,
+  gLK = 0,
+  pwFst = data.frame(),
+  name = "",
+  eps = 0,
+  pts = 0,
+  var = c(),
+  pop = c(),
+  cov = data.frame(),
+  fit = list(),
+  comp = 0,
+  deg = 0,
+  weight = 0,
+  score = 0,
+  mwis = FALSE
+)
 }
 \arguments{
 \item{id}{mvs id}
