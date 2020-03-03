@@ -76,6 +76,6 @@ plotMvs (MVS[[1]], type = "LK")
 
 ### How to cite <i>metaVaR</i>?
 
-metaVaR: introducing metavariant species models for reference-free metagenomic-based population genomics.
+<b>metaVaR: introducing metavariant species models for reference-free metagenomic-based population genomics.</b>
 Romuald Laso-Jadart, Christophe Ambroise, Pierre Peterlongo, Mohammed-Amin Madoui. (2020)
-bioRxiv 2020.01.30.924381; doi: https://doi.org/10.1101/2020.01.30.924381
+bioRxiv doi: https://doi.org/10.1101/2020.01.30.924381
