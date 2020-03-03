@@ -27,7 +27,7 @@ MWIS = getMWIS (MVC)
 # Filter loci to generate MVS
 MVS = mvc2mvs(MWIS, freq = MS5$freq)
 ```
-The results consists in a list of objects of class <i>mvs</i> that contains the allele frequency matrix, global and pairwise <i>F_{ST}</i>, LK and associated corrected p-value.
+The results consists in a list of objects of class <i>mvs</i> that contains the allele frequency matrix, global and pairwise $F_{ST}$, LK and associated corrected p-value.
 
 ### Data preprocessing and input data format
 You first need to run DiscoSnp++ on multisample metagenomic data without references. Then, use the DiscoSnp++ VCF output to generate two matices: one depth of coverage matrix for bialleic loci and one allele frequency matrix. This task can be performed using the perl script metavarFilter.pl designed to parse the DiscoSnp++ output.
@@ -62,16 +62,16 @@ MVS_list = readMvsList ("output_dir")
 There are currently four types of plots that ca be produced on a MVS object. Here an example on the MVS "6_10_1".
 ```
 # Plot the MVS distribution of allele frequency
-plotMvs (MVS$`5_5_1`, type = "freq")
+plotMvs (MVS[[1]], type = "freq")
 
 # Plot the MVS loci depth of coverage
-plotMvs (MVS$`5_5_1`, type = "cov")
+plotMvs (MVS[[1]], type = "cov")
 
 # Plot the pairwise $F_{ST}$ matrix
-plotMvs (MVS$`5_5_1`, type = "heatFst")
+plotMvs (MVS[[1]], type = "heatFst")
 
-# Plot the LK distribution
-plotMvs (MVS$`5_5_1`, type = "LK")
+# Plot the expected and observed LK distribution
+plotMvs (MVS[[1]], type = "LK")
 ```
 
 ### How to cite <i>metaVaR</i>?
