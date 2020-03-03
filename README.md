@@ -6,6 +6,7 @@
 ```
 install_github("madoui/metaVaR")
 ```
+The package has been submitted to CRAN and will be available from it soon vi `install.packages()`.
 ## How to use <i>metaVaR</i>?
 ### Quick running example on a toyset
 Two toysets can be used with the package, the "6bac" dataset and the "MS5" dataset. The first dataset was created from simulated metagenomic data from bacterial genome admixture. The second toyset was created from real metagenomic data. Here is an example to run <i>metaVaR</i> on the "MS5" dataset.
