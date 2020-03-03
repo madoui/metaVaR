@@ -9,14 +9,14 @@ install_github("madoui/metaVaR")
 The package has been submitted to CRAN and will be available from it soon via `install.packages()`.
 ## How to use <i>metaVaR</i>?
 ### Quick running example on a toyset
-Two toysets can be used with the package, the "6bac" dataset and the "MS5" dataset. The first dataset was created from simulated metagenomic data from bacterial genome admixture. The second toyset was created from real metagenomic data. Here is an example to run <i>metaVaR</i> on the "MS5" dataset.
+One toysets can be used with the package, the "MS5" dataset, created from <i>DiscoSNP++</i> ran on real metagenomic data collected in five sampling sites in the Mediterranean Sea. Here is an example to run <i>metaVaR</i> on the "MS5" dataset.
 ```
 library(metaVaR)
 
 # espilon values to test for dbscan
-e = c(3,5)
+e = c(3,5,7)
 # minimum points values to test for dbscan
-p = c(5,10)
+p = c(5, 10, 20, 50)
 
 # Test all dbscan parameter couples
 MVC = tryParam (e, p, MS5$cov)
