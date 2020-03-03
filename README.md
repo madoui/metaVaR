@@ -59,7 +59,7 @@ MVS_list = readMvsList ("output_dir")
 ```
 
 ### Results visualisation
-There are currently four types of plots that ca be produced on a MVS object. Here an example on the MVS "6_10_1".
+There are currently four types of plots that ca be produced on a MVS object. Here an example on the first mvs of the list 'MVS'.
 ```
 # Plot the MVS distribution of allele frequency
 plotMvs (MVS[[1]], type = "freq")
