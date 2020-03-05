@@ -2,7 +2,7 @@
 % Please edit documentation in R/mvc2AdjMat.R
 \name{mvc2graph}
 \alias{mvc2graph}
-\title{mvc2graph}
+\title{Metavariant clusters to graph}
 \usage{
 mvc2graph(mvcList)
 }
@@ -14,4 +14,27 @@ a mvc graph of class \code{igraph}.
 }
 \description{
 Create an undirected graph of a list of \code{mvc}
+}
+\examples{
+\dontshow{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# sampling 1000 loci from the Mediterranean variant set
+loci = sample(rownames(MS5$cov), 10000)
+coverage = MS5$cov[loci,]
+# Testing dbscan parameters
+MVC = tryParam (e, p, coverage)
+graph = mvc2graph(MVC)
+}
+\donttest{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# Testing dbscan parameters
+MVC = tryParam (e, p, MS5$cov)
+graph = mvc2graph(MVC)
+}
 }

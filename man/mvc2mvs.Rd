@@ -2,7 +2,7 @@
 % Please edit documentation in R/mvc2mvs.R
 \name{mvc2mvs}
 \alias{mvc2mvs}
-\title{mvc2mvs}
+\title{Metavariant cluster to Metavariant species}
 \usage{
 mvc2mvs(MVC, minPop = 3, minCov = 8, freq, minVarCov = 8, sd = 2, minVar = 100)
 }
@@ -29,10 +29,30 @@ mvc2mvs selects the \code{mvc} being maximum weighted independent
 set and passing quality filters to generates the \code{mvs}.
 }
 \examples{
-\dontrun{
-e = c(5,6)
-p = c(5, 10)
-MVC = tryParam(e, p , MS5$cov)
+\dontshow{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# sampling 1000 loci from the Mediterranean variant set
+loci = sample(rownames(MS5$cov), 10000)
+coverage = MS5$cov[loci,]
+# Testing dbscan parameters
+MVC = tryParam (e, p, coverage)
 MWIS = getMWIS (MVC)
-MVS = mvc2mvs (MWIS, freq = MS5$freq, minPop = 3, minCov = 6 , minVarCov = 8, sd = 2, minVar = 100)}
+frequencies = MS5$freq[loci,]
+MVS = mvc2mvs(MWIS, freq = frequencies)
+plotMvs(MVS[[1]], type = "heatFst")
+}
+\donttest{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# Testing dbscan parameters
+MVC = tryParam (e, p, MS5$cov)
+MWIS = getMWIS (MVC)
+MVS = mvc2mvs(MWIS, freq = MS5$freq)
+plotMvs(MVS[[1]], type = "heatFst")
+}
 }

@@ -1,4 +1,4 @@
-#' writeMvs
+#' write a object Mvs
 #'
 #' Write a \code{mvs} in an output directory
 #'
@@ -42,17 +42,14 @@ setMethod(
     write.table( x@gLK,paste(mvsDir,"/gLK.txt", sep = ""), sep ="\t",
                  quote = FALSE, col.names = FALSE, row.names = FALSE)
     fitFile = paste(mvsDir,"/loglik.txt", sep = "")
-    write.table( t(c("pop","loglik")), fitFile, quote = F, col.names = FALSE, row.names = FALSE)
+    write.table( t(c("pop","loglik")), fitFile, quote = FALSE, col.names = FALSE, row.names = FALSE)
     mwisFile = paste(mvsDir, "/mwis.txt", sep = "")
-    write.table( t(c("slot","value")), mwisFile, quote = F, col.names = FALSE, row.names = FALSE)
+    write.table( t(c("slot","value")), mwisFile, quote = FALSE, col.names = FALSE, row.names = FALSE)
     for (pop in names(x@fit)){
-      #pdf(paste(mvsDir,"/",pop,"_fit.pdf", sep = ""), 6, 4)
-      #plot(x@fit[[pop]])
-      #dev.off()
       write.table (cbind (pop, x@fit[[pop]]$loglik),
                    paste(mvsDir,"/loglik.txt", sep = ""),
-                   row.names = F, col.names = F ,
-                   quote = F, append = T)
+                   row.names = FALSE, col.names = FALSE ,
+                   quote = FALSE, append = TRUE)
     }
     write.table(rbind(c("connected_component",x@comp),
                       c("degree", x@deg),
@@ -60,7 +57,7 @@ setMethod(
                       c("score", x@score),
                       c("mwis", x@mwis)),
                 mwisFile,
-                row.names = F, col.names = F ,
-                quote = F, append = T)
+                row.names = FALSE, col.names = FALSE ,
+                quote = FALSE, append = TRUE)
   }
 )

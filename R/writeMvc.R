@@ -42,8 +42,8 @@ setMethod(
       dev.off()
       write.table (cbind (pop, x@fit[[pop]]$loglik),
                    paste(mvcDir,"/loglik.txt", sep = ""),
-                   row.names = F, col.names = F ,
-                   quote = F, append = T)
+                   row.names = FALSE, col.names = FALSE ,
+                   quote = FALSE, append = TRUE)
     }
     write.table(rbind(c("connected_component",x@comp),
                       c("degree", x@deg),
@@ -51,7 +51,7 @@ setMethod(
                       c("score", x@score),
                       c("mwis", x@mwis)),
                 mwisFile,
-                row.names = F, col.names = F ,
-                quote = F, append = T)
+                row.names = FALSE, col.names = FALSE ,
+                quote = FALSE, append = TRUE)
   }
 )

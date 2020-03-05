@@ -27,7 +27,7 @@ dbscan2mvc <- function(dbscanRes, cov, mvcMinVar = 1000, mvcMinCov = 5){
       if (median(mvcCov[,j]< mvcMinCov)){
         next
       }
-      fit = fitdist (sample(mvcCov[,j], mvcMinVar) , "nbinom", method = 'mle', silent = TRUE)
+      fit = suppressWarnings(fitdist (sample(mvcCov[,j], mvcMinVar) , "nbinom", method = 'mle', silent = TRUE))
       mvcFit [[popName[j]]] = fit
     }
     mvc = mvc (name = mvcName,

@@ -1,15 +1,37 @@
-#' mvc2AdjMat
+#' Adjacency matrix of metavariant clusters
 #'
-#' Create an adjacency matrix mvc based on shared metavariants between \code{mvc}
+#' Build an adjacency matrix of a mvc based on shared metavariants between multiple object of class \code{mvc}
 #'
 #' @param MVC a list of objects of class \code{mvc}.
-#' @return a mvc adjacency matrix.
+#' @return a mvc adjacency matrix of class \code{matrix}.
 #' @export
-
+#' @examples
+#' \dontshow{
+#' # espilon values to test for dbscan
+#' e = c(3,5)
+#' # minimum points values to test for dbscan
+#' p = c(5,10)
+#' # sampling 1000 loci from the Mediterranean variant set
+#' loci = sample(rownames(MS5$cov), 10000)
+#' coverage = MS5$cov[loci,]
+#' # Testing dbscan parameters
+#' MVC = tryParam (e, p, coverage)
+#' AdjMat = mvc2AdjMat(MVC)
+#' }
+#' \donttest{
+#' # espilon values to test for dbscan
+#' e = c(3,5)
+#' # minimum points values to test for dbscan
+#' p = c(5,10)
+#' # Testing dbscan parameters
+#' MVC = tryParam (e, p, MS5$cov)
+#' AdjMat = mvc2AdjMat(MVC)
+#' }
 mvc2AdjMat <- function(MVC){
   #check input parameter MVC
   if( !all( lapply (MVC, class) == "mvc" ) ){
-      error = cat( "MVC parameter provided is not a list of mvc objects\n")
+      error = "MVC parameter provided is not a list of mvc objects\n"
+      warning(error)
       return (error)
   }
   #create a squared matrix with 0
@@ -31,28 +53,53 @@ mvc2AdjMat <- function(MVC){
   }
   return (mvcAdjMat)
 }
-#' AdjMat2Graph
+#' MVC graph
 #'
 #' Create an undirected graph from an adjacency matrix of mvc
 #'
-#' @param adjMatrix an adjacency matrix.
+#' @param adjMatrix an adjacency matrix of class \code{matrix}.
 #' @return a graph object of class \code{igraph}.
 #' @importFrom igraph graph_from_adjacency_matrix
 #' @importFrom igraph simplify
 #' @export
+#' @examples
+#' \dontshow{
+#' # espilon values to test for dbscan
+#' e = c(3,5)
+#' # minimum points values to test for dbscan
+#' p = c(5,10)
+#' # sampling 1000 loci from the Mediterranean variant set
+#' loci = sample(rownames(MS5$cov), 10000)
+#' coverage = MS5$cov[loci,]
+#' # Testing dbscan parameters
+#' MVC = tryParam (e, p, coverage)
+#' AdjMat = mvc2AdjMat(MVC)
+#' graph = AdjMat2Graph(AdjMat)
+#' }
+#' \donttest{
+#' # espilon values to test for dbscan
+#' e = c(3,5)
+#' # minimum points values to test for dbscan
+#' p = c(5,10)
+#' # Testing dbscan parameters
+#' MVC = tryParam (e, p, MS5$cov)
+#' AdjMat = mvc2AdjMat(MVC)
+#' graph = AdjMat2Graph(AdjMat)
+#' }
 AdjMat2Graph <- function (adjMatrix){
   # check input parameter adjMatrix
   if (!isSymmetric.matrix(adjMatrix)){
-    error = cat("adjMatrix is not a symetric matrix\n")
+    error = "adjMatrix is not a symetric matrix\n"
+    warning(error)
     return (error)
   }
   mvcGraph = graph_from_adjacency_matrix(adjMatrix, mode = "upper")
   mvcGraph = simplify(mvcGraph)
   return (mvcGraph)
 }
-#' graph2mvcComp
+#' Graph to metavariant cluster connected components
 #'
-#' Extract connected mvs from the mvc graph and attribute the mvc to components
+#' Extract connected components from the mvc graph and attribute the mvc to components
 #'
 #' @param graph an adjacency matrix.
 #' @param mvcList a list of object of class \code{mvc}.
@@ -60,11 +107,38 @@ AdjMat2Graph <- function (adjMatrix){
 #' @importFrom igraph components
 #' @importFrom igraph degree
 #' @export
+#' @examples
+#' \dontshow{
+#' # espilon values to test for dbscan
+#' e = c(3,5)
+#' # minimum points values to test for dbscan
+#' p = c(5,10)
+#' # sampling 1000 loci from the Mediterranean variant set
+#' loci = sample(rownames(MS5$cov), 10000)
+#' coverage = MS5$cov[loci,]
+#' # Testing dbscan parameters
+#' MVC = tryParam (e, p, coverage)
+#' AdjMat = mvc2AdjMat(MVC)
+#' graph = AdjMat2Graph(AdjMat)
+#' ConneComp = graph2mvcComp (graph,MVC)
+#' }
+#' \donttest{
+#' # espilon values to test for dbscan
+#' e = c(3,5)
+#' # minimum points values to test for dbscan
+#' p = c(5,10)
+#' # Testing dbscan parameters
+#' MVC = tryParam (e, p, MS5$cov)
+#' AdjMat = mvc2AdjMat(MVC)
+#' graph = AdjMat2Graph(AdjMat)
+#' ConneComp = graph2mvcComp (graph,MVC)
+#' }
 graph2mvcComp <- function (graph,mvcList){
   # check input parameter adjMatrix
   if (!class(graph)=="igraph" || !all(lapply(mvcList,class)=="mvc")){
-    error = cat("graph is not an object of class igraph \n
-                or mvcList parameter provided is not a list of mvc objects\n")
+    error = "graph is not an object of class igraph \n
+                or mvcList parameter provided is not a list of mvc objects\n"
+    warning(error)
     return (error)
   }
   mvcComp = components(graph)$membership
@@ -73,20 +147,43 @@ graph2mvcComp <- function (graph,mvcList){
     mvc = setMvc(mvc, comp = mvcComp[mvc@name], deg = mvcDegree[mvc@name])
     mvcList[[mvc@name]] = mvc
   }
-  cat (paste (max(mvcComp), " components found\n", sep =""))
+  message (paste (max(mvcComp), "components found\n", sep =" "))
   return (mvcList)
 }
-#' mvc2graph
+#' Metavariant clusters to graph
 #'
 #' Create an undirected graph of a list of \code{mvc}
 #'
 #' @param mvcList a list of object of class \code{mvc}.
 #' @return a mvc graph of class \code{igraph}.
 #' @export
+#' @examples
+#' \dontshow{
+#' # espilon values to test for dbscan
+#' e = c(3,5)
+#' # minimum points values to test for dbscan
+#' p = c(5,10)
+#' # sampling 1000 loci from the Mediterranean variant set
+#' loci = sample(rownames(MS5$cov), 10000)
+#' coverage = MS5$cov[loci,]
+#' # Testing dbscan parameters
+#' MVC = tryParam (e, p, coverage)
+#' graph = mvc2graph(MVC)
+#' }
+#' \donttest{
+#' # espilon values to test for dbscan
+#' e = c(3,5)
+#' # minimum points values to test for dbscan
+#' p = c(5,10)
+#' # Testing dbscan parameters
+#' MVC = tryParam (e, p, MS5$cov)
+#' graph = mvc2graph(MVC)
+#' }
 mvc2graph <- function (mvcList){
   #check input parameter mvcList
   if(!all(lapply(mvcList,class)=="mvc")){
-    error = cat( "mvcList parameter provided is not a list of mvc objects\n")
+    error = "mvcList parameter provided is not a list of mvc objects\n"
+    warning(error)
     return (error)
   }
   return (AdjMat2Graph(mvc2AdjMat(mvcList)))

@@ -1,7 +1,7 @@
-#' mwis
+#' Maximum Weighted Indepedent Set
 #'
 #' Calculate the mvc weight and score in a list of object of class \code{mvc}.
-#' Identify some the maximum weighted independant sets and change the slot mwis
+#' Identify some the maximum weighted independant sets and update the mwis slot
 #'
 #' @param MVC a list of object of class \code{mvc}.
 #' @param nbComp number of connected components
@@ -51,7 +51,7 @@ mwis<-function(nbComp, MVC){
         mwis = mvcName
       }
     }
-    cat (paste("MWIS mvc: ",mwis,"\n", sep =""))
+    message (paste("MWIS mvc: ",mwis,"\n", sep =""))
     MVC[[mwis]] = setMvc(MVC[[mwis]], mwis = TRUE)
 
   }

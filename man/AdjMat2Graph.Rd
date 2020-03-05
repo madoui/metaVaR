@@ -2,16 +2,41 @@
 % Please edit documentation in R/mvc2AdjMat.R
 \name{AdjMat2Graph}
 \alias{AdjMat2Graph}
-\title{AdjMat2Graph}
+\title{MVC graph}
 \usage{
 AdjMat2Graph(adjMatrix)
 }
 \arguments{
-\item{adjMatrix}{an adjacency matrix.}
+\item{adjMatrix}{an adjacency matrix of class \code{matrix}.}
 }
 \value{
 a graph object of class \code{igraph}.
 }
 \description{
 Create an undirected graph from an adjacency matrix of mvc
+}
+\examples{
+\dontshow{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# sampling 1000 loci from the Mediterranean variant set
+loci = sample(rownames(MS5$cov), 10000)
+coverage = MS5$cov[loci,]
+# Testing dbscan parameters
+MVC = tryParam (e, p, coverage)
+AdjMat = mvc2AdjMat(MVC)
+graph = AdjMat2Graph(AdjMat)
+}
+\donttest{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# Testing dbscan parameters
+MVC = tryParam (e, p, MS5$cov)
+AdjMat = mvc2AdjMat(MVC)
+graph = AdjMat2Graph(AdjMat)
+}
 }

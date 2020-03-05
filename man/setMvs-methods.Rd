@@ -6,17 +6,47 @@
 \alias{setMvs,mvs-method}
 \title{setMvs}
 \usage{
-setMvs(x, id = x@id, freq = x@freq, gFst = x@gFst, gLK = x@gLK,
-  pwFst = x@pwFst, name = x@name, eps = x@eps, pts = x@pts,
-  var = x@var, pop = x@pop, cov = x@cov, fit = x@fit,
-  comp = x@comp, deg = x@deg, weight = x@weight, score = x@score,
-  mwis = x@mwis)
+setMvs(
+  x,
+  id = x@id,
+  freq = x@freq,
+  gFst = x@gFst,
+  gLK = x@gLK,
+  pwFst = x@pwFst,
+  name = x@name,
+  eps = x@eps,
+  pts = x@pts,
+  var = x@var,
+  pop = x@pop,
+  cov = x@cov,
+  fit = x@fit,
+  comp = x@comp,
+  deg = x@deg,
+  weight = x@weight,
+  score = x@score,
+  mwis = x@mwis
+)
 
-\S4method{setMvs}{mvs}(x, id = x@id, freq = x@freq, gFst = x@gFst,
-  gLK = x@gLK, pwFst = x@pwFst, name = x@name, eps = x@eps,
-  pts = x@pts, var = x@var, pop = x@pop, cov = x@cov,
-  fit = x@fit, comp = x@comp, deg = x@deg, weight = x@weight,
-  score = x@score, mwis = x@mwis)
+\S4method{setMvs}{mvs}(
+  x,
+  id = x@id,
+  freq = x@freq,
+  gFst = x@gFst,
+  gLK = x@gLK,
+  pwFst = x@pwFst,
+  name = x@name,
+  eps = x@eps,
+  pts = x@pts,
+  var = x@var,
+  pop = x@pop,
+  cov = x@cov,
+  fit = x@fit,
+  comp = x@comp,
+  deg = x@deg,
+  weight = x@weight,
+  score = x@score,
+  mwis = x@mwis
+)
 }
 \arguments{
 \item{x}{an object of class \code{mvc}.}

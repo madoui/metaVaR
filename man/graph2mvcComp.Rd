@@ -2,7 +2,7 @@
 % Please edit documentation in R/mvc2AdjMat.R
 \name{graph2mvcComp}
 \alias{graph2mvcComp}
-\title{graph2mvcComp}
+\title{Graph to metavariant cluster connected components}
 \usage{
 graph2mvcComp(graph, mvcList)
 }
@@ -15,5 +15,32 @@ graph2mvcComp(graph, mvcList)
 a list of object of class \code{mvc} assigned to graph component.
 }
 \description{
-Extract connected mvs from the mvc graph and attribute the mvc to components
+Extract connected components from the mvc graph and attribute the mvc to components
+}
+\examples{
+\dontshow{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# sampling 1000 loci from the Mediterranean variant set
+loci = sample(rownames(MS5$cov), 10000)
+coverage = MS5$cov[loci,]
+# Testing dbscan parameters
+MVC = tryParam (e, p, coverage)
+AdjMat = mvc2AdjMat(MVC)
+graph = AdjMat2Graph(AdjMat)
+ConneComp = graph2mvcComp (graph,MVC)
+}
+\donttest{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# Testing dbscan parameters
+MVC = tryParam (e, p, MS5$cov)
+AdjMat = mvc2AdjMat(MVC)
+graph = AdjMat2Graph(AdjMat)
+ConneComp = graph2mvcComp (graph,MVC)
+}
 }

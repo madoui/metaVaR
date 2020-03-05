@@ -1,9 +1,9 @@
-#' writeMvcList
+#' write a Mvc list
 #'
-#' Write a list of \code{mvc} in an output directory
+#' writeMvcList Writes a list of object of class \code{mvc} in at directory
 #'
 #' @param MVC a list of objects of class \code{mvc}.
-#' @param prefix output directory
+#' @param prefix output directory (default is out)
 #'
 #' @export
 

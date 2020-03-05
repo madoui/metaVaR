@@ -6,14 +6,37 @@
 \alias{setMvc,mvc-method}
 \title{setMvc}
 \usage{
-setMvc(x, name = x@name, eps = x@eps, pts = x@pts, var = x@var,
-  pop = x@pop, cov = x@cov, fit = x@fit, comp = x@comp,
-  deg = x@deg, weight = x@weight, score = x@score, mwis = x@mwis)
+setMvc(
+  x,
+  name = x@name,
+  eps = x@eps,
+  pts = x@pts,
+  var = x@var,
+  pop = x@pop,
+  cov = x@cov,
+  fit = x@fit,
+  comp = x@comp,
+  deg = x@deg,
+  weight = x@weight,
+  score = x@score,
+  mwis = x@mwis
+)
 
-\S4method{setMvc}{mvc}(x, name = x@name, eps = x@eps, pts = x@pts,
-  var = x@var, pop = x@pop, cov = x@cov, fit = x@fit,
-  comp = x@comp, deg = x@deg, weight = x@weight, score = x@score,
-  mwis = x@mwis)
+\S4method{setMvc}{mvc}(
+  x,
+  name = x@name,
+  eps = x@eps,
+  pts = x@pts,
+  var = x@var,
+  pop = x@pop,
+  cov = x@cov,
+  fit = x@fit,
+  comp = x@comp,
+  deg = x@deg,
+  weight = x@weight,
+  score = x@score,
+  mwis = x@mwis
+)
 }
 \arguments{
 \item{x}{an object of class \code{mvc}.}

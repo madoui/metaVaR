@@ -2,7 +2,7 @@
 % Please edit documentation in R/mwis.R
 \name{mwis}
 \alias{mwis}
-\title{mwis}
+\title{Maximum Weighted Indepedent Set}
 \usage{
 mwis(nbComp, MVC)
 }
@@ -16,5 +16,5 @@ a list of object of class \code{mvc}.
 }
 \description{
 Calculate the mvc weight and score in a list of object of class \code{mvc}.
-Identify some the maximum weighted independant sets and change the slot mwis
+Identify some the maximum weighted independant sets and update the mwis slot
 }

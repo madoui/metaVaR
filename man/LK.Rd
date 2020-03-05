@@ -19,5 +19,5 @@ Compute the LK statistics from MVS allele frequencies
 The LK is computed as follow, \eqn{LK=\frac{(n-1) Fst}{mean(F_{ST})}}, where \code{F_{ST}} is the wright's F-statistics.
 }
 \references{
-"RC Lewontin and J Krakauer. Distribution of gene frequency as a test of the theory of the selective neutrality of polymorphisms. Genetics 74(1):175–195. 1973
+RC Lewontin and J Krakauer. Distribution of gene frequency as a test of the theory of the selective neutrality of polymorphisms. Genetics 74(1):175–195. 1973
 }

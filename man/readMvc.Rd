@@ -2,7 +2,7 @@
 % Please edit documentation in R/readMvc.R
 \name{readMvc}
 \alias{readMvc}
-\title{readMvc}
+\title{Reading a MVC from a file}
 \usage{
 readMvc(mvcDir)
 }
@@ -14,4 +14,41 @@ an object of class \code{mvc}
 }
 \description{
 Read a \code{mvc} from a directory dreated by \code{writeMvc}
+}
+\examples{
+\dontshow{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# sampling 1000 loci from the Mediterranean variant set
+loci = sample(rownames(MS5$cov), 10000)
+coverage = MS5$cov[loci,]
+
+# Testing dbscan parameters
+MVC = tryParam (e, p, coverage)
+
+# write MVC
+writeMvcList (MVC, "output_dir")
+
+# Read MVC
+MVC_list = readMvcList ("output_dir")
+unlink("output_dir")
+
+}
+\donttest{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+
+# Testing dbscan parameters
+MVC = tryParam (e, p, MS5$cov)
+
+# write MVC
+writeMvcList (MVC, "output_dir")
+
+# Read MVC
+MVC_list = readMvcList ("output_dir")
+}
 }

@@ -1,14 +1,15 @@
-#' plotMvs
+#' MVS visualization
 #'
 #' plotMvs allows various plotting for \code{mvs} like depth of coverage and allele frequency distribution, pairwise F-statistics, LK distribution
 #'
 #' @param mvs an object of class \code{mvs}.
 #' @param type type of plot to produce
+#' @return none
 #' @details
-#' type can be "freq" for allele frequencies distribution,
-#' "cov", for depth of coverage distribution.
-#' "heatFst", for a heatmap of the pairwise F-statistics
-#' "LK", for the global LK statistics
+#' The type of plot can be \code{freq} for allele frequencies distribution,
+#' \code{cov} for depth of coverage distribution.
+#' \code{heatFst} for a heatmap of the pairwise F-statistics
+#' \code{LK} for the observed and theoritical LK statistics
 #' @docType methods
 #' @name  plotMvs
 #' @rdname plotMvs-methods
@@ -54,14 +55,14 @@ setMethod(
       plot(p)
     }
     if ( type == "LK"){
-      h = hist ( mvs@gLK$LK , plot = F, breaks = 50 )
+      h = hist ( mvs@gLK$LK , plot = FALSE, breaks = 50 )
       n_pop = ncol(mvs@freq)-1
       max1 = max ( h$density )
       max2 = max ( dchisq (seq(0:max(mvs@gLK$LK)), n_pop ))
       Max = max (max1, max2) + 0.1
-      hist ( mvs@gLK$LK, freq = F, xlab = "LK" , ylim = c(0,Max) , breaks = 50 , main = "")
+      hist ( mvs@gLK$LK, freq = FALSE, xlab = "LK" , ylim = c(0,Max) , breaks = 50 , main = "")
       x <- NULL; rm(x)
-      curve ( dchisq( x, n_pop ) , lwd=3, col="orange" , add=T )
+      curve ( dchisq( x, n_pop ) , lwd=3, col="orange" , add=TRUE )
     }
   }
 )

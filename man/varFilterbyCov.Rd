@@ -2,7 +2,7 @@
 % Please edit documentation in R/varFilterbyCov.R
 \name{varFilterbyCov}
 \alias{varFilterbyCov}
-\title{varFilterbyCov}
+\title{Loci fitering by coberage}
 \usage{
 varFilterbyCov(cov, dev = 2, minCov = 8)
 }
@@ -13,6 +13,32 @@ varFilterbyCov(cov, dev = 2, minCov = 8)
 
 \item{minCov}{minimum depth of coverage}
 }
+\value{
+depth of coverage
+}
 \description{
-varFilterbyCov
+Filtering of variable loci dependending on the expected depth of coverage
+}
+\examples{
+\dontshow{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# sampling 1000 loci from the Mediterranean variant set
+loci = sample(rownames(MS5$cov), 10000)
+coverage = MS5$cov[loci,]
+# Testing dbscan parameters
+MVC = tryParam (e, p, coverage)
+Cov = varFilterbyCov (MVC[[1]]@cov)
+}
+\donttest{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# Testing dbscan parameters
+MVC = tryParam (e, p, MS5$cov)
+Cov = varFilterbyCov (MVC[[1]]@cov)
+}
 }

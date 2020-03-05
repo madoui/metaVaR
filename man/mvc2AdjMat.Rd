@@ -2,7 +2,7 @@
 % Please edit documentation in R/mvc2AdjMat.R
 \name{mvc2AdjMat}
 \alias{mvc2AdjMat}
-\title{mvc2AdjMat}
+\title{Adjacency matrix of metavariant clusters}
 \usage{
 mvc2AdjMat(MVC)
 }
@@ -10,8 +10,31 @@ mvc2AdjMat(MVC)
 \item{MVC}{a list of objects of class \code{mvc}.}
 }
 \value{
-a mvc adjacency matrix.
+a mvc adjacency matrix of class \code{matrix}.
 }
 \description{
-Create an adjacency matrix mvc based on shared metavariants between \code{mvc}
+Build an adjacency matrix of a mvc based on shared metavariants between multiple object of class \code{mvc}
+}
+\examples{
+\dontshow{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# sampling 1000 loci from the Mediterranean variant set
+loci = sample(rownames(MS5$cov), 10000)
+coverage = MS5$cov[loci,]
+# Testing dbscan parameters
+MVC = tryParam (e, p, coverage)
+AdjMat = mvc2AdjMat(MVC)
+}
+\donttest{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# Testing dbscan parameters
+MVC = tryParam (e, p, MS5$cov)
+AdjMat = mvc2AdjMat(MVC)
+}
 }

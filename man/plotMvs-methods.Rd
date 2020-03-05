@@ -15,12 +15,15 @@ plotMvs(mvs, type)
 
 \item{type}{type of plot to produce}
 }
+\value{
+none
+}
 \description{
 plotMvs allows various plotting for \code{mvs} like depth of coverage and allele frequency distribution, pairwise F-statistics, LK distribution
 }
 \details{
-type can be "freq" for allele frequencies distribution,
-"cov", for depth of coverage distribution.
-"heatFst", for a heatmap of the pairwise F-statistics
-"LK", for the global LK statistics
+The type of plot can be \code{freq} for allele frequencies distribution,
+\code{cov} for depth of coverage distribution.
+\code{heatFst} for a heatmap of the pairwise F-statistics
+\code{LK} for the observed and theoritical LK statistics
 }
