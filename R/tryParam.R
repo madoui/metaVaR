@@ -37,7 +37,6 @@
 #' @export
 #'
 tryParam <- function ( eps, pts, cov, mvcMinVar = 1000){
-
   mvc = list()
   for ( i in eps ){
     for ( j in pts ){

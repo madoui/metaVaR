@@ -7,7 +7,6 @@
 #' @param nbComp number of connected components
 #' @return a list of object of class \code{mvc}.
 #' @export
-
 mwis<-function(nbComp, MVC){
   for (i in 1:nbComp){
     mvcList = list()

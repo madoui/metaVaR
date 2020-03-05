@@ -6,40 +6,6 @@
 #' @param p allele frequencies of class \code{data.frame}
 #' @return LK value of class \code{data.frame}
 #' @export
-#' @examples
-#' \dontshow{
-#' # espilon values to test for dbscan
-#' e = c(3,5)
-#' # minimum points values to test for dbscan
-#' p = c(5,10)
-#' # sampling 1000 loci from the Mediterranean variant set
-#' loci = sample(rownames(MS5$cov), 10000)
-#' coverage = MS5$cov[loci,]
-#'
-#' # Testing dbscan parameters
-#' MVC = tryParam (e, p, coverage)
-#' MWIS = getMWIS (MVC)
-#' frequencies = MS5$freq[loci,]
-#' MVS = mvc2mvs(MWIS, freq = frequencies)
-#'
-#' # LK-statistics
-#' LK = LK(MVS[[1]]@freq)
-#' }
-#' \donttest{
-#' # espilon values to test for dbscan
-#' e = c(3,5)
-#' # minimum points values to test for dbscan
-#' p = c(5,10)
-#'
-#' # Create and MVC and MVS
-#' MVC = tryParam (e, p, MS5$cov)
-#' MWIS = getMWIS (MVC)
-#' MVS = mvc2mvs(MWIS, freq = MS5$freq)
-#'
-#' # LK-statistics
-#' LK = LK(MVS[[1]]@freq)
-#' hist(LK)
-#' }
 LK <- function (p){
   n = ncol(p)
   fst = fst(p)

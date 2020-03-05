@@ -4,7 +4,7 @@
 \name{plotMvs}
 \alias{plotMvs}
 \alias{plotMvs,mvs-method}
-\title{MVS visualization}
+\title{plotMvs}
 \usage{
 plotMvs(mvs, type)
 
