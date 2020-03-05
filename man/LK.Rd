@@ -2,7 +2,7 @@
 % Please edit documentation in R/LK.R
 \name{LK}
 \alias{LK}
-\title{LK}
+\title{LK statistics}
 \usage{
 LK(p)
 }
@@ -17,6 +17,41 @@ Compute the LK statistics from MVS allele frequencies
 }
 \details{
 The LK is computed as follow, \eqn{LK=\frac{(n-1) Fst}{mean(F_{ST})}}, where \code{F_{ST}} is the wright's F-statistics.
+}
+\examples{
+\dontshow{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+# sampling 1000 loci from the Mediterranean variant set
+loci = sample(rownames(MS5$cov), 10000)
+coverage = MS5$cov[loci,]
+
+# Testing dbscan parameters
+MVC = tryParam (e, p, coverage)
+MWIS = getMWIS (MVC)
+frequencies = MS5$freq[loci,]
+MVS = mvc2mvs(MWIS, freq = frequencies)
+
+# LK-statistics
+LK = LK(MVS[[1]]@freq)
+}
+\donttest{
+# espilon values to test for dbscan
+e = c(3,5)
+# minimum points values to test for dbscan
+p = c(5,10)
+
+# Create and MVC and MVS
+MVC = tryParam (e, p, MS5$cov)
+MWIS = getMWIS (MVC)
+MVS = mvc2mvs(MWIS, freq = MS5$freq)
+
+# LK-statistics
+LK = LK(MVS[[1]]@freq)
+hist(LK)
+}
 }
 \references{
 RC Lewontin and J Krakauer. Distribution of gene frequency as a test of the theory of the selective neutrality of polymorphisms. Genetics 74(1):175–195. 1973

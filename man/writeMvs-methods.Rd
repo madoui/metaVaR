@@ -5,7 +5,7 @@
 \alias{writeMvs}
 \alias{writeMvs,mvs-method}
 \alias{writeMvs,mvc-method}
-\title{writeMvs}
+\title{write a object Mvs}
 \usage{
 writeMvs(x, prefix = "out")
 

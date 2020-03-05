@@ -1,7 +1,7 @@
 Package: metaVaR
 Type: Package
 Title: Multiple Species Population Genomics from Environmental Data
-Version: 0.3.20
+Version: 0.3.21
 Authors@R: person("amin", "madoui", email = "amine.madoui@gmail.com", role = c("aut", "cre"))
 Description: Various functions to reconstruct several species models simultaneously and to perform population genetic analyses from environmental molecular data. This includes the estimation of genetic differentiation and the identification of loci under selection. The theoritical background of this package is detailed in "metaVaR: introducing metavariant species models for reference-free metagenomic-based population genomics" by Laso-Jadart R, Ambroise C, Peterlongo P and Madoui MA (2020) <doi:10.1101/2020.01.30.924381>.
 License: GPL-3
@@ -25,9 +25,7 @@ Collate:
     'mwis.R'
     'plotMvs.R'
     'pwFst.R'
-    'readMvc.R'
     'readMvcList.R'
-    'readMvs.R'
     'readMvsList.R'
     'setMvc.R'
     'setMvs.R'
