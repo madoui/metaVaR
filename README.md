@@ -43,19 +43,19 @@ p = c(5,10)
 MVC_list = tryParam (e, p, MS5$cov)
 
 # store MVC
-writeMvcList (MVC_list, "output_dir")
+writeMvcList (MVC_list, "MVC")
 
 # import MVC
-MVC_list = readMvcList ("output_dir")
+MVC_list = readMvcList ("MVC")
 
 MWIS_list = getMWIS (MVC_list)
 MVS_list = mvc2mvs(MWIS_list, freq = MS5$freq)
 
 # store MVS
-writeMvsList (MVS_list, "output_dir")
+writeMvsList (MVS_list, "MVS")
 
 # read MVS
-MVS_list = readMvsList ("output_dir")
+MVS_list = readMvsList ("MVS")
 ```
 
 ### Results visualisation
