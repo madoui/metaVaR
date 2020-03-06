@@ -54,6 +54,7 @@ readMvs <- function(mvsDir){
              freq = mvsFreq,
              pwFst = mvsPwfst,
              gFst = mvsGfst,
-             gLK = mvsGLK)
+             gLK = as.data.frame(as.numeric(as.character(mvsGLK)))
+            )
   return(mvs)
 }
