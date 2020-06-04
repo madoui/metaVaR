@@ -32,9 +32,22 @@ The results consists in a list of objects of class <i>mvs</i> that contains the 
 ### Data preprocessing and input data format
 You first need to run DiscoSnp++ on multisample metagenomic data without references. Then, use the DiscoSnp++ VCF output to generate two matices: one depth of coverage matrix for bialleic loci and one allele frequency matrix. This task can be performed using the perl script metavarFilter.pl designed to parse the DiscoSnp++ output.
 ```
-perl metavarFilter.pl -i metavariant.vcf -p prefix [-options...]
+metaVarFilter.pl -i input.vcf -p output_prefix [-a minCov -b maxCov -c minPop]         
+	Input:
+	-i	a VCF file produced by DiscoSNP++ ran on multisample metagenomic data
+	-p	a prefix output
+  
+  Options:
+  -a      The minimum cumulative depth of coverage of a loci across populations (default 20)
+  -b      The maximum cumulative depth of coverage of a loci across populations (default 250)
+	-c	    The minimum number of populations avec a SNP call for a loci to be kept (default 4)
+	
+	Outputs:
+	1. prefix_filtered.vcf		a filtered VCF file that contains informative biallelic SNVs
+	2. prefix_cov.txt		      a file with the depth of coverage of biallelic loci in each population
+	3. prefix_freq.txt		    a file with the allele frequencies of biallelic loci in each population
 ```
-
+-a and -b parameters can be set to 0 and 10000 if all snps want to be kept, but this will slow the clustering. To get rid of noisy snps, the distribibution of the cumulative depth of coverage can be observed. This will show a bell shape curve, -a and -b can be the oberved lower and upper limits of the bell.
 ### Read/Write metaVaR outputs
 ```
 # run metaVaR
