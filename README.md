@@ -70,6 +70,8 @@ writeMvsList (MVS_list, "MVS")
 # read MVS
 MVS_list = readMvsList ("MVS")
 ```
+### Running metaVaR on HPC
+To take advantages of the metaVaR custering algorithm (mDBSCAN-WMIN), a lot of epsilon and minimum points values can be tested on grid computing. In this case, all `MVC_list` have to be written in the same output directory. Then, the `mvc2mvs` can be executed on all MVC.
 
 ### Results visualisation
 There are currently four types of plots that ca be produced on a MVS object. Here an example on the first mvs of the list 'MVS'.
